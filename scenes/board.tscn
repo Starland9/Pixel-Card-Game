@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0xqoe3pu8nvj"]
+[gd_scene load_steps=5 format=3 uid="uid://c0xqoe3pu8nvj"]
 
 [ext_resource type="Script" path="res://scenes/board.gd" id="1_uqikm"]
+[ext_resource type="PackedScene" uid="uid://bdy8g3euylr05" path="res://objects/bank/bank.tscn" id="2_06wc4"]
+[ext_resource type="PackedScene" uid="uid://cbudrtb5ikh18" path="res://objects/player/player.tscn" id="3_h0dnh"]
+[ext_resource type="PackedScene" uid="uid://dv1limp64acmj" path="res://objects/table/table.tscn" id="4_xgs7s"]
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_uqikm")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 326.0
+offset_bottom = 611.0
+color = Color(0.0117647, 0, 0.00392157, 1)
+
+[node name="Bank" parent="." instance=ExtResource("2_06wc4")]
+position = Vector2(269, 240)
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="human" parent="Players" instance=ExtResource("3_h0dnh")]
+position = Vector2(30, 497)
+type = 1
+
+[node name="cpu" parent="Players" instance=ExtResource("3_h0dnh")]
+position = Vector2(30, 33)
+type = 2
+
+[node name="Table" parent="." instance=ExtResource("4_xgs7s")]
+position = Vector2(134, 240)
+type = 3
+
+[connection signal="shared" from="Bank" to="." method="_on_bank_shared"]
+[connection signal="played" from="Players/human" to="." method="_on_human_played"]
+[connection signal="played" from="Players/cpu" to="." method="_on_cpu_played"]
