@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://objects/card/card.gd" id="2_hmb2u"]
 
 [node name="Card" type="Sprite2D"]
+scale = Vector2(3, 3)
 texture = ExtResource("1_6p6k7")
 centered = false
 region_enabled = true
