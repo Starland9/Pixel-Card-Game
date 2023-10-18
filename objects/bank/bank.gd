@@ -24,7 +24,7 @@ func onClick(_card: Card):
 	
 func share():
 	var card = cards.back()
-	remove_card(card)
+#	remove_card(card)
 	shared.emit(card)
 	draw_cards()
 		

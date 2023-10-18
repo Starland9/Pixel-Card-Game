@@ -34,6 +34,9 @@ func init_from_card(card: Card, card_type: CardManager.Types):
 	region_rect = card.region_rect
 	type = card_type
 	
+func is_equal_to(card: Card):
+	return card.number == number and card.type == type and card.paint == paint
+	
 func get_event(event: InputEventMouse):
 	return event.position.x > global_position.x and event.position.x < global_position.x + width \
 		and event.position.y > global_position.y and event.position.y < global_position.y + height

@@ -9,7 +9,10 @@ var cards : Array[Card] = []
 @onready var container = self
 @export var hide_cards := false
 
+var receive_position := Vector2.ZERO
+
 func _ready():
+	receive_position = global_position
 	draw_cards()
 	
 
@@ -36,8 +39,6 @@ func give_card(card: Card):
 	var card2: Card = Card.new()
 	card2.init_from_card(card, type)
 	cards.append(card2)
-
-	
 	
 func remove_card(card: Card):
 	for c in cards:
@@ -45,8 +46,18 @@ func remove_card(card: Card):
 			cards.erase(c)
 			return
 	return null
-
 	
+func animate_send_card(card: Card, _to: CardsContainer):
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_BOUNCE)
+	var target := _get_card_of_children(card)
+	tween.tween_property(target, "global_position", Vector2(150, 300), 2)
+
+func _get_card_of_children(card: Card) -> Card:
+	for c in container.get_children():
+		if card.is_equal_to(c):
+			return c
+	return null
 	
 func _input(event):
 	if event is InputEventMouseButton:

@@ -5,7 +5,6 @@ class_name Board
 @onready var human: Player = $Players/human
 @onready var cpu: Player = $Players/cpu
 @onready var table : Table = $Table
-@onready var animator : CardAnimator = $Animator
 
 var current_player : Player
 var first_share_finised := false
@@ -30,6 +29,7 @@ func _on_bank_shared(card: Card):
 	_draw_all_cards()
 	_alternate_player()
 	if first_share_finised:
+		bank.animate_send_card(card, current_player)
 		cpuPlay()
 	
 func _alternate_player():
