@@ -10,25 +10,31 @@ var type := CardManager.Types.BANK
 var paint : CardManager.Paints
 
 
-
 func _ready():
 	width *= scale.x
 	height *= scale.y
 	
-func shuffle_anime():
-	var start_pos = global_position
-	var tween = get_tree().create_tween()
+func is_playable_by(card: Card) -> bool:
+	if number == card.number:
+		return true
+	if paint == card.paint:
+		return true
+		
+	return false
 	
+func enable_hide():
+	$Hider.show()
+
+func disable_hide():
+	$Hider.hide()
 	
-func init_from_card(card: Card):
+func init_from_card(card: Card, card_type: CardManager.Types):
 	paint = card.paint
 	number = card.number
 	region_rect = card.region_rect
+	type = card_type
 	
 func get_event(event: InputEventMouse):
-	return event.position.x > global_position.x and event.position.x < global_position.x + width and event.position.y > global_position.y and event.position.y < global_position.y + height
-	
-	
-
-	
+	return event.position.x > global_position.x and event.position.x < global_position.x + width \
+		and event.position.y > global_position.y and event.position.y < global_position.y + height
 	

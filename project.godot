@@ -23,6 +23,8 @@ CardManager="*res://autoloads/card_manager.gd"
 
 window/size/viewport_width=320
 window/size/viewport_height=600
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
 window/handheld/orientation=1
 
 [input_devices]
@@ -34,3 +36,4 @@ pointing/emulate_touch_from_mouse=true
 textures/canvas_textures/default_texture_filter=0
 textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

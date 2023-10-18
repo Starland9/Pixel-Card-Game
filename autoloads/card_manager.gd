@@ -28,13 +28,9 @@ func fill_bank():
 	cards.shuffle()
 	bank_filled.emit()
 	
-	
-func set_card_type(card: Card, type: Types):
-	for c in cards:
-		if c.paint == card.paint and c.number == card.number:
-			c.type = type
-			return
 			
+			
+
 			
 				
 			

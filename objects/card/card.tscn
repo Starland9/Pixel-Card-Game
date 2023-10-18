@@ -10,3 +10,10 @@ centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 17, 26)
 script = ExtResource("2_hmb2u")
+
+[node name="Hider" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_6p6k7")
+centered = false
+region_enabled = true
+region_rect = Rect2(18, 108, 17, 26)

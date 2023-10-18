@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0xqoe3pu8nvj"]
+[gd_scene load_steps=6 format=3 uid="uid://c0xqoe3pu8nvj"]
 
 [ext_resource type="Script" path="res://scenes/board.gd" id="1_uqikm"]
 [ext_resource type="PackedScene" uid="uid://bdy8g3euylr05" path="res://objects/bank/bank.tscn" id="2_06wc4"]
 [ext_resource type="PackedScene" uid="uid://cbudrtb5ikh18" path="res://objects/player/player.tscn" id="3_h0dnh"]
 [ext_resource type="PackedScene" uid="uid://dv1limp64acmj" path="res://objects/table/table.tscn" id="4_xgs7s"]
+[ext_resource type="PackedScene" uid="uid://bwjfmkctqdxlh" path="res://objects/animator/animator.tscn" id="5_fixqx"]
 
 [node name="Board" type="Node2D"]
 script = ExtResource("1_uqikm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 326.0
-offset_bottom = 611.0
+offset_right = 524.0
+offset_bottom = 768.0
 color = Color(0.0117647, 0, 0.00392157, 1)
 
 [node name="Bank" parent="." instance=ExtResource("2_06wc4")]
-position = Vector2(269, 240)
+position = Vector2(263, 240)
 
 [node name="Players" type="Node2D" parent="."]
 
@@ -30,6 +31,8 @@ type = 2
 position = Vector2(134, 240)
 type = 3
 
+[node name="Animator" parent="." instance=ExtResource("5_fixqx")]
+
 [connection signal="shared" from="Bank" to="." method="_on_bank_shared"]
 [connection signal="played" from="Players/human" to="." method="_on_human_played"]
-[connection signal="played" from="Players/cpu" to="." method="_on_cpu_played"]
+[connection signal="cpuDemandBank" from="Players/cpu" to="." method="_on_cpu_cpu_demand_bank"]

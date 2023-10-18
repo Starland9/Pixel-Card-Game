@@ -14,3 +14,5 @@ offset_bottom = 148.0
 color = Color(0.223529, 0.00392157, 0.027451, 1)
 
 [node name="Card" parent="." instance=ExtResource("2_eji1e")]
+
+[node name="Containier" type="Node2D" parent="."]
